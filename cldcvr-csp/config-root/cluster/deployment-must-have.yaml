@@ -1,0 +1,15 @@
+# [START constraint]
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: K8sRequiredLabels
+metadata:
+  name: deployment-must-have
+spec:
+  match:
+    kinds:
+      - apiGroups: ["apps"]
+        kinds: ["Deployment"]
+  parameters:
+    labels:
+      - key: "platform"
+    message: "Deployment objects should have an 'platform' label indicating who created them."
+# [END constraint]

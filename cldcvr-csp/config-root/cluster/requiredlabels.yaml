@@ -1,0 +1,40 @@
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8srequiredlabels
+spec:
+  crd:
+    spec:
+      names:
+        kind: K8sRequiredLabels
+      validation:
+        # Schema for the `parameters` field
+        openAPIV3Schema:
+          properties:
+            message:
+              type: string
+            labels:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                    value:
+                      type: string
+                  allowedRegex:
+                    type: string
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      rego: |
+        package k8srequiredlabels
+        violation[{"msg": msg}] {
+          not input.review.object.metadata.labels.platform
+          msg := "platform label must exist"
+
+        }
+        violation[{"msg": msg}] {
+          value := input.review.object.metadata.labels.platform
+          not startswith(value, "gcp")
+          msg := sprintf("platform label must start with `gcp`; found `%v`", [value])
+        }
