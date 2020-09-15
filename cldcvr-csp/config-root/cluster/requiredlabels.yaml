@@ -35,6 +35,6 @@ spec:
         }
         violation[{"msg": msg}] {
           value := input.review.object.metadata.labels.platform
-          not startswith(value, "gcp")
-          msg := sprintf("platform label must start with `gcp`; found `%v`", [value])
+          not startswith(value, "experian")
+          msg := sprintf("platform label must start with `experian`; found `%v`", [value])
         }

@@ -1,0 +1,16 @@
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-world-java
+spec:
+  selector:
+    app: hello-world-java
+    platform: experian
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: NodePort
+
