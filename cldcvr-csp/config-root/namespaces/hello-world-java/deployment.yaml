@@ -54,3 +54,6 @@ spec:
           initialDelaySeconds: 5
           periodSeconds: 2
           timeoutSeconds: 10
+        envFrom:
+            - configMapRef:
+                name: hello-world-java-configmap
