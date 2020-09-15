@@ -34,6 +34,7 @@ spec:
       containers:
       - name: hello-world-java
         image: gcr.io/cc-anthos/hello-world-java:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         livenessProbe:
