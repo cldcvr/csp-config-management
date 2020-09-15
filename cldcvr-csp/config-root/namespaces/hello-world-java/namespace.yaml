@@ -1,4 +1,4 @@
-# creates namespace named "hello"
+# creates namespace named "hello-world-java"
 apiVersion: v1
 kind: Namespace
 metadata:

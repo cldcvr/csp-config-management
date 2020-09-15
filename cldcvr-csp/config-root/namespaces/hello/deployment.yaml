@@ -55,15 +55,3 @@ spec:
     targetPort: 8080
   type: NodePort
 ---
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
-metadata:
-  name: hello-cloudbuild-ingress
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /
-        backend:
-          serviceName: hello-cloudbuild
-          servicePort: 8080
