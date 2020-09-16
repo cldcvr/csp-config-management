@@ -4,7 +4,7 @@ metadata:
   name: ingress-https-only
 spec:
   match:
-    excludedNamespaces: ["cert-manager","kube-system","ingress-basic"]
+    excludedNamespaces: ["cert-manager","kube-system","ingress-basic","gke-connect","gatekeeper-system","config-management-system"]
     kinds:
       - apiGroups: ["extensions", "networking.k8s.io"]
         kinds: ["Ingress"]
