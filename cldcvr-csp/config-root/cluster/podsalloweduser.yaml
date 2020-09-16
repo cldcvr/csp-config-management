@@ -5,6 +5,7 @@ metadata:
 spec:
   enforcementAction: deny
   match:
+    excludedNamespaces: ["cert-manager","kube-system"]
     kinds:
       - apiGroups: [""]
         kinds: ["Pod"]

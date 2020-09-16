@@ -5,6 +5,7 @@ metadata:
   name: deployment-must-have
 spec:
   match:
+    excludedNamespaces: ["cert-manager","kube-system"]
     kinds:
       - apiGroups: ["apps"]
         kinds: ["Deployment"]
