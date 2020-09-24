@@ -5,7 +5,7 @@ metadata:
   name: deployment-must-have
 spec:
   match:
-    excludedNamespaces: ["cert-manager","kube-system","ingress-basic","gke-connect","gatekeeper-system","config-management-system"]
+    excludedNamespaces: ["cert-manager","kube-system","ingress-basic","gke-connect","gatekeeper-system","config-management-system","istio-system"]
     kinds:
       - apiGroups: ["apps"]
         kinds: ["Deployment"]
