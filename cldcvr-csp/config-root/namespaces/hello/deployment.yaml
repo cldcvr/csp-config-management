@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-cloudbuild
+  labels:
+    app: hello-cloudbuild
+    owner: sweeti
+    platform: gcp
+  namespace: hello
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-cloudbuild
+  template:
+    metadata:
+      labels:
+        app: hello-cloudbuild
+    spec:
+      containers:
+      - name: hello-cloudbuild
+        image: gcr.io/cc-anthos/hello-cloudbuild:latest
+        ports:
+        - containerPort: 8080
+      securityContext:
+        runAsUser: 1000
